@@ -4,6 +4,11 @@ const App = () => {
 
   const [calculation, setCalculation] = useState('');
 
+  const displayFunction = () => {
+    const clickedVal = event.target.value;
+    setCalculation(preVal => preVal + clickedVal);
+  }
+
   return (
     <>
       <div className="calc">
@@ -14,31 +19,31 @@ const App = () => {
 
         <p>
           <input type="button" value="1" onClick={displayFunction}/>
-          <input type="button" value="2" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="3" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="+" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="2" onClick={displayFunction}/>
+          <input type="button" value="3" onClick={displayFunction}/>
+          <input type="button" value="+" onClick={displayFunction}/>
         </p>
 
 
         <p>
-          <input type="button" value="4" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="5" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="6" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="-" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="4" onClick={displayFunction}/>
+          <input type="button" value="5" onClick={displayFunction}/>
+          <input type="button" value="6" onClick={displayFunction}/>
+          <input type="button" value="-" onClick={displayFunction}/>
         </p>
 
         <p>
-          <input type="button" value="7" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="8" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="9" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="*" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="7" onClick={displayFunction}/>
+          <input type="button" value="8" onClick={displayFunction}/>
+          <input type="button" value="9" onClick={displayFunction}/>
+          <input type="button" value="*" onClick={displayFunction}/>
         </p>
 
         <p>
-          <input type="button" value="0" onClick={e => setCalculation(calculation + e.target.value)}/>
-          <input type="button" value="." onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="0" onClick={displayFunction}/>
+          <input type="button" value="." onClick={displayFunction}/>
           <input type="button" value="=" onClick={e => setCalculation(eval(calculation))}/>
-          <input type="button" value="/" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="/" onClick={displayFunction}/>
         </p>
 
         <p>
