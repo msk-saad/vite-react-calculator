@@ -1,33 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const [calculation, setCalculation] = useState('');
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div className="calc">
+
+        <div className="display">
+          <input type="text" value = {calculation}/>
+        </div>
+
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          <input type="button" value="1" onClick={displayFunction}/>
+          <input type="button" value="2" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="3" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="+" onClick={e => setCalculation(calculation + e.target.value)}/>
+        </p>
+
+
+        <p>
+          <input type="button" value="4" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="5" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="6" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="-" onClick={e => setCalculation(calculation + e.target.value)}/>
+        </p>
+
+        <p>
+          <input type="button" value="7" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="8" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="9" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="*" onClick={e => setCalculation(calculation + e.target.value)}/>
+        </p>
+
+        <p>
+          <input type="button" value="0" onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="." onClick={e => setCalculation(calculation + e.target.value)}/>
+          <input type="button" value="=" onClick={e => setCalculation(eval(calculation))}/>
+          <input type="button" value="/" onClick={e => setCalculation(calculation + e.target.value)}/>
+        </p>
+
+        <p>
+          <input type="button" value="AC" onClick={e => setCalculation('')}/>
+          <input type="button" value="Del" onClick={e => setCalculation(calculation.slice(0,-1))}/>
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
